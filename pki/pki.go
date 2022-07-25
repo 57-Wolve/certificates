@@ -513,20 +513,19 @@ func (p *PKI) GenerateRootCertificate(name, org, resource string, pass []byte) (
 				Organization: []string{org},
 			},
 			PolicyIdentifiers: []asn1.ObjectIdentifier{
-				[]int{2, 5, 29, 32, 0}, // All Issuance Policies
+				//[]int{2, 5, 29, 32, 0}, // All Issuance Policies
 				//[]int{2, 5, 29, 37, 0},                    // Any Purpose (2.5.29.37.0)
 				[]int{1, 3, 6, 1, 4, 1, 311, 20, 2, 2},    // Smart Card Logon (1.3.6.1.4.1.311.20.2.2)
 				//[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 4, 1}, // File Recovery (1.3.6.1.4.1.311.10.3.4.1)
 				//[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 4},    // Encrypting File System (1.3.6.1.4.1.311.10.3.4)
 				[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 12},   // Document Signing (1.3.6.1.4.1.311.10.3.12)
 				[]int{1, 3, 6, 1, 4, 1, 311, 80, 1},       // Document Encryption (1.3.6.1.4.1.311.80.1)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 3},          // Code Signing (1.3.6.1.5.5.7.3.3)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 2},          // Client Authentication (1.3.6.1.5.5.7.3.2)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 3},          // Code Signing (1.3.6.1.5.5.7.3.3)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 2},          // Client Authentication (1.3.6.1.5.5.7.3.2)
 				[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 13},   // Lifetime Signing (1.3.6.1.4.1.311.10.3.13)
 				[]int{1, 3, 6, 1, 5, 5, 7, 3, 4},          // Secure Email (1.3.6.1.5.5.7.3.4)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 1},          // Server Authentication (1.3.6.1.5.5.7.3.1)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 8},          // Time Stamping (1.3.6.1.5.5.7.3.8)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 4},          // emailProtection (1.3.6.1.5.5.7.3.4)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 1},          // Server Authentication (1.3.6.1.5.5.7.3.1)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 8},          // Time Stamping (1.3.6.1.5.5.7.3.8)
 			},
 			UnknownExtKeyUsage: []asn1.ObjectIdentifier{
 				//[]int{2, 5, 29, 37, 0},                    // Any Purpose (2.5.29.37.0)
@@ -535,16 +534,15 @@ func (p *PKI) GenerateRootCertificate(name, org, resource string, pass []byte) (
 				//[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 4},    // Encrypting File System (1.3.6.1.4.1.311.10.3.4)
 				[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 12},   // Document Signing (1.3.6.1.4.1.311.10.3.12)
 				[]int{1, 3, 6, 1, 4, 1, 311, 80, 1},       // Document Encryption (1.3.6.1.4.1.311.80.1)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 3},          // Code Signing (1.3.6.1.5.5.7.3.3)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 2},          // Client Authentication (1.3.6.1.5.5.7.3.2)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 3},          // Code Signing (1.3.6.1.5.5.7.3.3)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 2},          // Client Authentication (1.3.6.1.5.5.7.3.2)
 				[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 13},   // Lifetime Signing (1.3.6.1.4.1.311.10.3.13)
 				[]int{1, 3, 6, 1, 5, 5, 7, 3, 4},          // Secure Email (1.3.6.1.5.5.7.3.4)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 1},          // Server Authentication (1.3.6.1.5.5.7.3.1)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 8},          // Time Stamping (1.3.6.1.5.5.7.3.8)
-				[]int{1, 3, 6, 1, 5, 5, 7, 3, 4},          // emailProtection (1.3.6.1.5.5.7.3.4)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 1},          // Server Authentication (1.3.6.1.5.5.7.3.1)
+				//[]int{1, 3, 6, 1, 5, 5, 7, 3, 8},          // Time Stamping (1.3.6.1.5.5.7.3.8)
 			},
 			ExtKeyUsage:           []x509.ExtKeyUsage{x509.ExtKeyUsageClientAuth, x509.ExtKeyUsageServerAuth, x509.ExtKeyUsageCodeSigning, x509.ExtKeyUsageEmailProtection, x509.ExtKeyUsageTimeStamping},
-			KeyUsage:              x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign | x509.KeyUsageCRLSign,
+			KeyUsage:              x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign | x509.KeyUsageCRLSign | x509.KeyUsageKeyEncipherment,
 			BasicConstraintsValid: true,
 			IsCA:                  true,
 			MaxPathLen:            1,

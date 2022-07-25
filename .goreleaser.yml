@@ -13,10 +13,10 @@ builds:
     env:
       - CGO_ENABLED=0
     targets:
-      - darwin_amd64
-      - darwin_arm64
-      - freebsd_amd64
-      - linux_386
+      #- darwin_amd64
+      #- darwin_arm64
+      #- freebsd_amd64
+      #- linux_386
       - linux_amd64
       - linux_arm64
       - linux_arm_5
@@ -27,48 +27,6 @@ builds:
       - -trimpath
     main: ./cmd/step-ca/main.go
     binary: bin/step-ca
-    ldflags:
-      - -w -X main.Version={{.Version}} -X main.BuildTime={{.Date}}
-  -
-    id: step-cloudkms-init
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - darwin_amd64
-      - darwin_arm64
-      - freebsd_amd64
-      - linux_386
-      - linux_amd64
-      - linux_arm64
-      - linux_arm_5
-      - linux_arm_6
-      - linux_arm_7
-      - windows_amd64
-    flags:
-      - -trimpath
-    main: ./cmd/step-cloudkms-init/main.go
-    binary: bin/step-cloudkms-init
-    ldflags:
-      - -w -X main.Version={{.Version}} -X main.BuildTime={{.Date}}
-  -
-    id: step-awskms-init
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - darwin_amd64
-      - darwin_arm64
-      - freebsd_amd64
-      - linux_386
-      - linux_amd64
-      - linux_arm64
-      - linux_arm_5
-      - linux_arm_6
-      - linux_arm_7
-      - windows_amd64
-    flags:
-      - -trimpath
-    main: ./cmd/step-awskms-init/main.go
-    binary: bin/step-awskms-init
     ldflags:
       - -w -X main.Version={{.Version}} -X main.BuildTime={{.Date}}
 
@@ -95,11 +53,11 @@ checksum:
   extra_files:
     - glob: ./.releases/*
 
-signs:
-- cmd: cosign
-  stdin: '{{ .Env.COSIGN_PWD }}'
-  args: ["sign-blob", "-key=/tmp/cosign.key", "-output=${signature}", "${artifact}"]
-  artifacts: all
+#signs:
+#- cmd: cosign
+#  stdin: '{{ .Env.COSIGN_PWD }}'
+#  args: ["sign-blob", "-key=/tmp/cosign.key", "-output=${signature}", "${artifact}"]
+#  artifacts: all
 
 snapshot:
   name_template: "{{ .Tag }}-next"
