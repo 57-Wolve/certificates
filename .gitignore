@@ -20,3 +20,5 @@ output
 vendor
 .idea
 .envrc
+
+dist/
