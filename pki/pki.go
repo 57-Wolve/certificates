@@ -521,7 +521,7 @@ func (p *PKI) GenerateRootCertificate(name, org, resource string, pass []byte) (
 				//[]int{2, 23, 140, 1, 2, 2},	// Certificate issued in compliance with the TLS Baseline Requirements – Organization identity asserted (2.23.140.1.2.2)
 				//[]int{2, 23, 140, 1, 2, 3},	// Certificate issued in compliance with the TLS Baseline Requirements – Individual identity asserted (2.23.140.1.2.3)
 			},
-			KeyUsage: x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign | x509.KeyUsageCRLSign,
+			KeyUsage: x509.KeyUsageDigitalSignature | x509.KeyUsageKeyEncipherment | x509.KeyUsageCertSign | x509.KeyUsageCRLSign,
 			ExtKeyUsage: []x509.ExtKeyUsage{
 				x509.ExtKeyUsageServerAuth,
 				x509.ExtKeyUsageClientAuth,
@@ -602,7 +602,7 @@ func (p *PKI) GenerateIntermediateCertificate(name, org, resource string, parent
 				//[]int{2, 23, 140, 1, 2, 2},	// Certificate issued in compliance with the TLS Baseline Requirements – Organization identity asserted (2.23.140.1.2.2)
 				//[]int{2, 23, 140, 1, 2, 3},	// Certificate issued in compliance with the TLS Baseline Requirements – Individual identity asserted (2.23.140.1.2.3)
 			},
-			KeyUsage: x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign | x509.KeyUsageCRLSign,
+			KeyUsage: x509.KeyUsageDigitalSignature | x509.KeyUsageKeyEncipherment | x509.KeyUsageCertSign | x509.KeyUsageCRLSign,
 			ExtKeyUsage: []x509.ExtKeyUsage{
 				x509.ExtKeyUsageServerAuth,
 				x509.ExtKeyUsageClientAuth,
