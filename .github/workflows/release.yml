@@ -85,7 +85,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN_GH: ${{ secrets.TOKEN_GH }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
@@ -133,6 +133,6 @@ jobs:
           version: 'v1.7.0'
           args: release --rm-dist
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          TOKEN_GH: ${{ secrets.PAT }}
           DEB_VERSION: ${{ needs.create_release.outputs.debversion }}
           RELEASE_DATE: ${{ steps.release_date.outputs.RELEASE_DATE }}
