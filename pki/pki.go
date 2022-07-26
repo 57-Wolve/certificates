@@ -591,11 +591,6 @@ func (p *PKI) GenerateIntermediateCertificate(name, org, resource string, parent
 				x509.ExtKeyUsageEmailProtection,
 				x509.ExtKeyUsageTimeStamping,
 			},
-			UnknownExtKeyUsage: []asn1.ObjectIdentifier{
-				[]int{1, 3, 6, 1, 4, 1, 311, 20, 2, 2},		// Smart Card Logon (1.3.6.1.4.1.311.20.2.2)
-				[]int{1, 3, 6, 1, 4, 1, 311, 10, 3, 12},	// Document Signing (1.3.6.1.4.1.311.10.3.12)
-				[]int{1, 3, 6, 1, 4, 1, 311, 80, 1},		// Document Encryption (1.3.6.1.4.1.311.80.1)
-			},
 			BasicConstraintsValid: true,
 			IsCA:                  true,
 			MaxPathLen:            0,
