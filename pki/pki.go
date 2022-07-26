@@ -503,7 +503,7 @@ func (p *PKI) GenerateRootCertificate(name, org, resource string, pass []byte) (
 	resp, err := p.caCreator.CreateCertificateAuthority(&apiv1.CreateCertificateAuthorityRequest{
 		Name:     resource + "-Root-CA",
 		Type:     apiv1.RootCA,
-		Lifetime: 10 * 365 * 24 * time.Hour,
+		Lifetime: 25 * 365 * 24 * time.Hour,
 		CreateKey: &apiv1.CreateKeyRequest{
 			Name:               p.RootKey[0],
 			SignatureAlgorithm: kmsapi.UnspecifiedSignAlgorithm,
@@ -512,6 +512,8 @@ func (p *PKI) GenerateRootCertificate(name, org, resource string, pass []byte) (
 			Subject: pkix.Name{
 				CommonName:   name + " Root CA",
 				Organization: []string{org},
+				Country: "US",
+				SerialNumber: "A096606",
 			},
 			PolicyIdentifiers: []asn1.ObjectIdentifier{
 				[]int{2, 5, 29, 32, 0},			// All Issuance Policies
@@ -584,6 +586,8 @@ func (p *PKI) GenerateIntermediateCertificate(name, org, resource string, parent
 			Subject: pkix.Name{
 				CommonName:   name + " Intermediate CA",
 				Organization: []string{org},
+				Country: "US",
+				SerialNumber: "A096606",
 			},
 			PolicyIdentifiers: []asn1.ObjectIdentifier{
 				[]int{2, 5, 29, 32, 0},			// All Issuance Policies
